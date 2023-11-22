@@ -5,8 +5,6 @@ import java.time.LocalTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-// Import the exception here
-//import your_package_name.restaurantNotFoundException; // Replace 'your_package_name' with the actual package name
 
 class RestaurantServiceTest {
     private RestaurantService restaurantService;

@@ -52,7 +52,15 @@ public class Restaurant {
     }
     
     
-
+    //PART 3
+    public int getOrderValue(List<String> items){
+        int orderVal = 0;
+        for(String item: items){
+            Item getItem = findItemByName(item);
+            orderVal+= getItem.getPrice();
+        }
+        return orderVal;
+    }
 
     private Item findItemByName(String itemName) {
         return menu.stream()
@@ -68,5 +76,5 @@ public class Restaurant {
         }
         return menuString.toString();
     }
-
+    
 }

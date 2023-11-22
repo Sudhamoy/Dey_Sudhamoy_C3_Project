@@ -52,6 +52,18 @@ public void is_restaurant_open_should_return_false_if_time_is_outside_opening_an
     public void removing_item_that_does_not_exist_should_throw_exception() {
         assertThrows(itemNotFoundException.class, () -> restaurant.removeFromMenu("French fries"));
     }
+    //Passing
+    @Test
+    public void get_order_value_test(){
+        List<String> items = Arrays.asList("Sweet Corn Soup", "Vegetable Lasagne", "Sizzling brownie");
+        restaurant.addToMenu("Sweet Corn Soup", 119);
+        restaurant.addToMenu("Vegetable Lasagne", 269);
+        restaurant.addToMenu("Sizzling brownie", 319);
+
+        int orderValue = restaurant.getOrderValue(items);
+
+        assertEquals(orderValue, 707);
+    }
     //Failing
     @Test
     public void get_order_value_with_invalid_item_test() {
