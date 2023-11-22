@@ -1,6 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,6 +51,16 @@ public void is_restaurant_open_should_return_false_if_time_is_outside_opening_an
     @Test
     public void removing_item_that_does_not_exist_should_throw_exception() {
         assertThrows(itemNotFoundException.class, () -> restaurant.removeFromMenu("French fries"));
+    }
+    //Failing
+    @Test
+    public void get_order_value_with_invalid_item_test() {
+        List<String> items = Arrays.asList("Sweet Corn Soup", "Vegetable Lasagne", "Invalid Item");
+        restaurant.addToMenu("Sweet Corn Soup", 119);
+        restaurant.addToMenu("Vegetable Lasagne", 269);
+        restaurant.addToMenu("Sizzling brownie", 319);
+
+        assertThrows(NullPointerException.class, () -> restaurant.getOrderValue(items));
     }
 
 }
